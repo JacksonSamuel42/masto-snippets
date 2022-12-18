@@ -1,11 +1,23 @@
 {
-  "name": "masto",
+  "name": "masto-js-snippets",
   "displayName": "masto snippets",
-  "description": "",
+  "description": "Useful masto javascript to improve your masto experience",
   "version": "0.0.1",
+  "icon": "images/masto-icon.ico",
   "engines": {
     "vscode": "^1.74.0"
   },
+  "keywords": [
+    "snippets",
+    "mastodon",
+    "masto"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacksonsamuel42https://github.com/JacksonSamuel42/masto-snippets"
+  },
+  "license": "MIT",
+  "publisher": "Jackson Samuel",
   "categories": [
     "Snippets"
   ],

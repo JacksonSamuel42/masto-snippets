@@ -1,6 +1,6 @@
 # vs-code masto.js snippets
 
-Useful masto javascript to improve your masto experience
+Useful [masto.js](https://github.com/neet/masto.js) javascript to improve your masto experience
 
 *⚠️this snippet is under construction*
 
