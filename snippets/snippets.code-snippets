@@ -1,0 +1,376 @@
+{
+	"MastoAuthenticationLogin":{
+		"prefix": "ms-login",
+		"body": [
+			"import { login } from 'masto';",
+			"",
+			"async function main() {",
+			"    const masto = await login({",
+			"        url: 'https://example.com',",
+			"        accessToken: 'TOKEN',",
+			"    });",
+			"}",
+			"",
+			"main().catch((error) => {",
+			"    console.error(error);",
+			"});",
+		],
+		"description": "masto login configuration"
+	},
+	"MastoStatusFetch":{
+		"prefix": "ms-status-fetch",
+		"body": [
+			"const fetch = await masto.statuses.fetch('${1:id}');",
+		],
+		"description": "masto status fetch to View information about a status"
+	},
+	"MastoStatusCreate":{
+		"prefix": "ms-status-create",
+		"body": [
+			"const createStatus = await masto.statuses.create({",
+			"    status: '${2:Toot from TypeScript}',",
+			"    visibility: '${1|direct,unlisted,private,public|}',",
+			"});",
+		],
+		"description": "masto status create to Post a new status"
+	},
+	"MastoStatusCreateWithImage":{
+		"prefix": "ms-status-cwi",
+		"body": [
+			"const attachment = await masto.mediaAttachments.create({",
+			"    file: fs.createReadStream('../some_image.png'),",
+			"    description: 'Some image',",
+			"});",
+			"",
+			"const status = await masto.statuses.create({",
+			"    status: '${2:Toot from TypeScript}',",
+			"    visibility: '${1|direct,unlisted,private,public|}',",
+			"    mediaIds: [attachment.id],",
+			"});",
+			"",
+			"console.log(status)"
+
+		],
+		"description": "masto status create with image"
+	},
+	"MastoStatusUpdate":{
+		"prefix": "ms-status-update",
+		"body": [
+			"const updateStatus = await masto.statuses.update('${1:id}', {",
+			"    status: 'Toot from Typescript'",
+			"});",
+		],
+		"description": "masto status update a status"
+	},
+	"MastoStatusRemove":{
+		"prefix": "ms-status-remove",
+		"body": [
+			"const removeStatus = await masto.statuses.remove('${1:id}');",
+		],
+		"description": "masto status remove Delete one of your own statuses"
+	},
+	"MastoStatusFetchContext":{
+		"prefix": "ms-status-fc",
+		"body": [
+			"const fetchContext = await masto.statuses.fetchContext('${1:id}');",
+		],
+		"description": "masto status fetchContext View statuses above and below this status in the thread"
+	},
+	"MastoStatusFavourite":{
+		"prefix": "ms-status-favorite",
+		"body": [
+			"const favorite = await masto.statuses.favourite('${1:id}');",
+		],
+		"description": "masto status favorite add a status to your favourites list"
+	},
+	"MastoStatusUnFavourite":{
+		"prefix": "ms-status-unfavorite",
+		"body": [
+			"const unFavourite = await masto.statuses.unfavourite('${1:id}');",
+		],
+		"description": "masto status favorite add a status to your favorites list"
+	},
+	"MastoStatusMute":{
+		"prefix": "ms-status-mute",
+		"body": [
+			"const muteStatus = await masto.statuses.mute('${1:id}');",
+		],
+		"description": "masto status mute do not receive notifications for the thread that this status is part of. Must be a thread in which you are a participant."
+	},
+	"MastoStatusUnMute":{
+		"prefix": "ms-status-unmute",
+		"body": [
+			"const unNuteStatus = await masto.statuses.unmute('${1:id}');",
+		],
+		"description": "masto status unmute start receiving notifications again for the thread that this status is part of."
+	},
+	"MastoStatusFetchRebloggedBy":{
+		"prefix": "ms-status-frb",
+		"body": [
+			"const fetchRebloggedBy = await masto.statuses.fetchRebloggedBy('${1:id}');",
+		],
+		"description": "masto status fetchRebloggedBy view who boosted a given status."
+	},
+	"MastoStatusFetchFavouritedBy":{
+		"prefix": "ms-status-ffb",
+		"body": [
+			"const fetchFavouritedBy = await masto.statuses.fetchFavouritedBy('${1:id}');",
+		],
+		"description": "masto status fetchFavouritedBy view who favourited a given status."
+	},
+	"MastoStatusReblob":{
+		"prefix": "ms-status-reblog",
+		"body": [
+			"const reblob = await masto.statuses.reblog('${2:id}', {",
+			"    visibility: '${1|direct,unlisted,private,public|}',",
+			"});",
+		],
+		"description": "masto status reblog re-share a status."
+	},
+	"MastoStatusUnreblog":{
+		"prefix": "ms-status-unreblog",
+		"body": [
+			"const unReblob = await masto.statuses.unreblog('${1:id}');",
+		],
+		"description": "masto status unreblog undo a re-share of a status."
+	},
+	"MastoStatusPin":{
+		"prefix": "ms-status-pin",
+		"body": [
+			"const pinStatus = await masto.statuses.pin('${1:id}');",
+		],
+		"description": "masto status pin feature one of your own public statuses at the top of your profileatus."
+	},
+	"MastoStatusUnPin":{
+		"prefix": "ms-status-unpin",
+		"body": [
+			"const unPin = await masto.statuses.unpin('${1:id}');",
+		],
+		"description": "masto status unpin un-feature a status from the top of your profile."
+	},
+	"MastoStatusBookmark":{
+		"prefix": "ms-status-bookmark",
+		"body": [
+			"const bookmarkStatus = await masto.statuses.bookmark('${1:id}');",
+		],
+		"description": "masto status bookmark privately bookmark a status."
+	},
+	"MastoStatusUnBookmark":{
+		"prefix": "ms-status-unbookmark",
+		"body": [
+			"const unBookmarkStatus = await masto.statuses.unbookmark('${1:id}');",
+		],
+		"description": "masto status unbookmark remove a status from your private bookmarks."
+	},
+	"MastoStatusFetchHistory":{
+		"prefix": "ms-status-fh",
+		"body": [
+			"const fetchHistory = await masto.statuses.fetchHistory('${1:id}');",
+		],
+		"description": "masto status fetchHistory."
+	},
+	"MastoStatusFetchSource":{
+		"prefix": "ms-status-fs",
+		"body": [
+			"const fetchSource = await masto.statuses.fetchSource('${1:id}');",
+		],
+		"description": "masto status fetchSource."
+	},
+	"MastoAccountFetch": {
+		"prefix": "ms-account-fetch",
+		"body": [
+			"const fetchAccount = await masto.accounts.fetch('${1:id}');",
+		],
+		"description": "masto status fetch view information about a profile."
+	},
+	"MastoAccountCreate": {
+		"prefix": "ms-account-create",
+		"body": [
+			"const account = await masto.accounts.create({",
+			"    username: '$1',",
+			"    password: '$2',",
+			"    email: '$3',",
+			"    agreement: ${4:true},",
+			"    locale: '$5',",
+			"});"
+		],
+		"description": "masto status create creates a user and account records. Returns an account access token."
+	},
+	"MastoAccountVerifyCredentials": {
+		"prefix": "ms-account-vc",
+		"body": [
+			"const credential = await masto.accounts.verifyCredentials();",
+			"console.log(credential)"
+		],
+		"description": "masto status verifyCredentials test to make sure that the user token works."
+	},
+	"MastoAccountUpdateCredentials": {
+		"prefix": "ms-account-uc",
+		"body": [
+			"const updateCredentials = await masto.accounts.updateCredentials({",
+			"    displayName: '${1:Fluffy elephant friend}',",
+    		"    note: '${2:Hi fediverse!}',",
+    		"    avatar: fs.createReadStream(${3:'../some_image.png'}),",
+			"});"
+		],
+		"description": "masto status update credentials update the user's display and preferences."
+	},
+	"MastoAccountFetchFollowers": {
+		"prefix": "ms-account-ffs",
+		"body": [
+			"const fetchFollowers = await masto.accounts.fetchFollowers('${1:id}', {",
+			"    $2",
+			"});"
+		],
+		"description": "masto status fetch followers give accounts which follow the given account, if network is not hidden by the account owner."
+	},
+	"MastoAccountFetchFollowing": {
+		"prefix": "ms-account-ffg",
+		"body": [
+			"const fetchFollowing = await masto.accounts.fetchFollowing('${1:id}', {",
+			"    $2",
+			"});"
+		],
+		"description": "masto status fetch following give which the given account is following, if network is not hidden by the account owner."
+	},
+	"MastoAccountFetchStatuses": {
+		"prefix": "ms-account-fs",
+		"body": [
+			"const fetchStatuses = await masto.accounts.fetchStatuses('${1:id}', {",
+			"    $2",
+			"});"
+		],
+		"description": "masto status fetch statuses Statuses posted to the given account."
+	},
+	"MastoAccountFollow": {
+		"prefix": "ms-account-follow",
+		"body": [
+			"const follow = await masto.accounts.follow('${1:id}', {",
+			"    $BLOCK_COMMENT_START optional $BLOCK_COMMENT_END",
+			"    reblogs: ${2|true,false|}",
+			"});"
+		],
+		"description": "masto status follow the given accoun."
+	},
+	"MastoAccountUnFollow": {
+		"prefix": "ms-account-unfollow",
+		"body": [
+			"const unFollow = await masto.accounts.unfollow('${1:id}', {",
+			"    $BLOCK_COMMENT_START optional $BLOCK_COMMENT_END",
+			"    reblogs: ${2|true,false|}",
+			"});"
+		],
+		"description": "masto status unfollow the given accoun."
+	},
+	"MastoAccountFetchRelationship": {
+		"prefix": "ms-account-fr",
+		"body": [
+			"const fetchRelationships = await masto.accounts.fetchRelationships('${1:id: string[]}');"
+		],
+		"description": "masto status fetch relationships dind out whether a given account is followed, blocked, muted, etc."
+	},
+	"MastoAccountSearch": {
+		"prefix": "ms-account-search",
+		"body": [
+			"const search = await masto.accounts.search({",
+			"    q: '$1'",
+			"});"
+		],
+		"description": "masto status search Search for matching accounts by username or display name."
+	},
+	"MastoAccountBlock":{
+		"prefix": "ms-account-block",
+		"body": [
+			"const block = await masto.accounts.block('${1:id}');",
+		],
+		"description": "masto status block Block the given account. Clients should filter statuses from this account if received (e.g. due to a boost in the Home timeline)."
+	},
+	"MastoAccountUnblock":{
+		"prefix": "ms-account-unblock",
+		"body": [
+			"const unblock = await masto.accounts.unblock('${1:id}');",
+		],
+		"description": "masto status unblock the given account."
+	},
+	"MastoAccountPin":{
+		"prefix": "ms-account-pin",
+		"body": [
+			"const pin = await masto.accounts.pin('${1:id}');",
+		],
+		"description": "masto status pin add the given account to the user's featured profiles. (Featured profiles are currently shown on the user's own public profile.)."
+	},
+	"MastoAccountUnPin":{
+		"prefix": "ms-account-unpin",
+		"body": [
+			"const unpin = await masto.accounts.unpin('${1:id}');",
+		],
+		"description": "masto status unpin remove the given account from the user's featured profiles."
+	},
+	"MastoAccountFetchLists":{
+		"prefix": "ms-account-fl",
+		"body": [
+			"const fetchLists = await masto.accounts.fetchLists('${1:id}');",
+		],
+		"description": "masto status fetchLists Fetch the list with the given ID. Used for verifying the title of a list."
+	},
+	"MastoAccountMute":{
+		"prefix": "ms-account-mute",
+		"body": [
+			"const mute = await masto.accounts.mute('${1:id}', { $2 });",
+		],
+		"description": "masto account mute, mute the given account. Clients should filter statuses and notifications from this account, if received (e.g. due to a boost in the Home timeline)."
+	},
+	"MastoAccountUnMute":{
+		"prefix": "ms-account-unmute",
+		"body": [
+			"const unmute = await masto.accounts.unmute('${1:id}');",
+		],
+		"description": "masto account unmute, unmute the given account. Clients should filter statuses and notifications from this account, if received (e.g. due to a boost in the Home timeline)."
+	},
+	"MastoAccountCreateNote":{
+		"prefix": "ms-account-cn",
+		"body": [
+			"const createNote = await masto.accounts.createNote('${1:id}', {",
+				"    comment: '${2}'",
+			"});",
+		],
+		"description": "masto account createNote, unmute the given account. Clients should filter statuses and notifications from this account, if received (e.g. due to a boost in the Home timeline)."
+	},
+	"MastoAccountFetchFeaturedTags":{
+		"prefix": "ms-account-fft",
+		"body": [
+			"const fetchFeaturedTags = await masto.accounts.fetchFeaturedTags('${1:id}');",
+		],
+		"description": "masto status fetchFeaturedTags Get featured tag of the account."
+	},
+	"MastoAccountFetchIdentityProofs":{
+		"prefix": "ms-account-fip",
+		"body": [
+			"const fetchIdentityProofs = await masto.accounts.fetchIdentityProofs('${1:id}');",
+		],
+		"description": "masto status fetchIdentityProofs identity proofs."
+	},
+	"MastoAccountLookup":{
+		"prefix": "ms-account-lookup",
+		"body": [
+			"const lookup = await masto.accounts.lookup({",
+			"    acct: '${1}'",
+			"});",
+		],
+		"description": "masto status lookup This method allows to quickly convert a username of a known account to an ID that can be used with the REST API, or to check if a username is available for sign-up."
+	},
+	"MastoAccountFetchFamiliarFollowers":{
+		"prefix": "ms-account-fff",
+		"body": [
+			"const fetchFamiliarFollowers = await masto.accounts.fetchFamiliarFollowers();",
+		],
+		"description": "masto status fetchFamiliarFollowers."
+	},
+	"MastoAccountRemoveFromFollowers":{
+		"prefix": "ms-account-rff",
+		"body": [
+			"const removeFromFollowers = await masto.accounts.removeFromFollowers('${1:id}');",
+		],
+		"description": "masto status removeFromFollowers"
+	},
+}
