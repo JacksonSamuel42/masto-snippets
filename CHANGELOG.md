@@ -1,9 +1,17 @@
-# Change Log
+# Masto js snippets changelog
 
-All notable changes to the "masto" extension will be documented in this file.
+# 0.0.1 (2022-12-18)
+- added snippets for:
+  - account
+  - statuses
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+# 1.0.0 (2022-12-19)
+- added snippets for:
+  - app
+  - announcements
+  - blocks
+  - bookmarks
+  - conversations
+  - directory
+  - custom emoji
+  - domain blocks

@@ -2,7 +2,7 @@
   "name": "masto-js-snippets",
   "displayName": "masto snippets",
   "description": "Useful masto javascript to improve your masto experience",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "icon": "images/masto-icon.ico",
   "engines": {
     "vscode": "^1.74.0"
@@ -30,6 +30,22 @@
       {
         "language": "typescript",
         "path": "./snippets/snippets.code-snippets.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/accounts.code-snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/accounts.code-snippets.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/statuses.code-snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/statuses.code-snippets.json"
       }
     ]
   }

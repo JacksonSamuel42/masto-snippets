@@ -1,0 +1,199 @@
+{
+	"MastoAccountFetch": {
+		"prefix": "ms-account-fetch",
+		"body": [
+			"const fetchAccount = await masto.accounts.fetch('${1:id}');",
+		],
+		"description": "masto status fetch view information about a profile."
+	},
+	"MastoAccountCreate": {
+		"prefix": "ms-account-create",
+		"body": [
+			"const account = await masto.accounts.create({",
+			"    username: '$1',",
+			"    password: '$2',",
+			"    email: '$3',",
+			"    agreement: ${4:true},",
+			"    locale: '$5',",
+			"});"
+		],
+		"description": "masto status create creates a user and account records. Returns an account access token."
+	},
+	"MastoAccountVerifyCredentials": {
+		"prefix": "ms-account-vc",
+		"body": [
+			"const credential = await masto.accounts.verifyCredentials();",
+			"console.log(credential)"
+		],
+		"description": "masto status verifyCredentials test to make sure that the user token works."
+	},
+	"MastoAccountUpdateCredentials": {
+		"prefix": "ms-account-uc",
+		"body": [
+			"const updateCredentials = await masto.accounts.updateCredentials({",
+			"    displayName: '${1:Fluffy elephant friend}',",
+    		"    note: '${2:Hi fediverse!}',",
+    		"    avatar: fs.createReadStream(${3:'../some_image.png'}),",
+			"});"
+		],
+		"description": "masto status update credentials update the user's display and preferences."
+	},
+	"MastoAccountFetchFollowers": {
+		"prefix": "ms-account-ffs",
+		"body": [
+			"const fetchFollowers = await masto.accounts.fetchFollowers('${1:id}', {",
+			"    $2",
+			"});"
+		],
+		"description": "masto status fetch followers give accounts which follow the given account, if network is not hidden by the account owner."
+	},
+	"MastoAccountFetchFollowing": {
+		"prefix": "ms-account-ffg",
+		"body": [
+			"const fetchFollowing = await masto.accounts.fetchFollowing('${1:id}', {",
+			"    $2",
+			"});"
+		],
+		"description": "masto status fetch following give which the given account is following, if network is not hidden by the account owner."
+	},
+	"MastoAccountFetchStatuses": {
+		"prefix": "ms-account-fs",
+		"body": [
+			"const fetchStatuses = await masto.accounts.fetchStatuses('${1:id}', {",
+			"    $2",
+			"});"
+		],
+		"description": "masto status fetch statuses Statuses posted to the given account."
+	},
+	"MastoAccountFollow": {
+		"prefix": "ms-account-follow",
+		"body": [
+			"const follow = await masto.accounts.follow('${1:id}', {",
+			"    $BLOCK_COMMENT_START optional $BLOCK_COMMENT_END",
+			"    reblogs: ${2|true,false|}",
+			"});"
+		],
+		"description": "masto status follow the given account."
+	},
+	"MastoAccountUnFollow": {
+		"prefix": "ms-account-unfollow",
+		"body": [
+			"const unFollow = await masto.accounts.unfollow('${1:id}', {",
+			"    $BLOCK_COMMENT_START optional $BLOCK_COMMENT_END",
+			"    reblogs: ${2|true,false|}",
+			"});"
+		],
+		"description": "masto status unfollow the given accoun."
+	},
+	"MastoAccountFetchRelationship": {
+		"prefix": "ms-account-fr",
+		"body": [
+			"const fetchRelationships = await masto.accounts.fetchRelationships('${1:id: string[]}');"
+		],
+		"description": "masto status fetch relationships out whether a given account is followed, blocked, muted, etc."
+	},
+	"MastoAccountSearch": {
+		"prefix": "ms-account-search",
+		"body": [
+			"const search = await masto.accounts.search({",
+			"    q: '$1'",
+			"});"
+		],
+		"description": "masto status search for matching accounts by username or display name."
+	},
+	"MastoAccountBlock":{
+		"prefix": "ms-account-block",
+		"body": [
+			"const block = await masto.accounts.block('${1:id}');",
+		],
+		"description": "masto status block the given account."
+	},
+	"MastoAccountUnblock":{
+		"prefix": "ms-account-unblock",
+		"body": [
+			"const unblock = await masto.accounts.unblock('${1:id}');",
+		],
+		"description": "masto status unblock the given account."
+	},
+	"MastoAccountPin":{
+		"prefix": "ms-account-pin",
+		"body": [
+			"const pin = await masto.accounts.pin('${1:id}');",
+		],
+		"description": "masto status pin add the given account to the user's featured profiles."
+	},
+	"MastoAccountUnPin":{
+		"prefix": "ms-account-unpin",
+		"body": [
+			"const unpin = await masto.accounts.unpin('${1:id}');",
+		],
+		"description": "masto status unpin remove the given account from the user's featured profiles."
+	},
+	"MastoAccountFetchLists":{
+		"prefix": "ms-account-fl",
+		"body": [
+			"const fetchLists = await masto.accounts.fetchLists('${1:id}');",
+		],
+		"description": "masto status fetchLists Fetch the list with the given ID. Used for verifying the title of a list."
+	},
+	"MastoAccountMute":{
+		"prefix": "ms-account-mute",
+		"body": [
+			"const mute = await masto.accounts.mute('${1:id}', { $2 });",
+		],
+		"description": "masto account mute, mute the given account. Clients should filter statuses and notifications from this account, if received (e.g. due to a boost in the Home timeline)."
+	},
+	"MastoAccountUnMute":{
+		"prefix": "ms-account-unmute",
+		"body": [
+			"const unmute = await masto.accounts.unmute('${1:id}');",
+		],
+		"description": "masto account unmute, unmute the given account. Clients should filter statuses and notifications from this account, if received (e.g. due to a boost in the Home timeline)."
+	},
+	"MastoAccountCreateNote":{
+		"prefix": "ms-account-cn",
+		"body": [
+			"const createNote = await masto.accounts.createNote('${1:id}', {",
+				"    comment: '${2}'",
+			"});",
+		],
+		"description": "masto account createNote"
+	},
+	"MastoAccountFetchFeaturedTags":{
+		"prefix": "ms-account-fft",
+		"body": [
+			"const fetchFeaturedTags = await masto.accounts.fetchFeaturedTags('${1:id}');",
+		],
+		"description": "masto status fetchFeaturedTags Get featured tag of the account."
+	},
+	"MastoAccountFetchIdentityProofs":{
+		"prefix": "ms-account-fip",
+		"body": [
+			"const fetchIdentityProofs = await masto.accounts.fetchIdentityProofs('${1:id}');",
+		],
+		"description": "masto status fetchIdentityProofs identity proofs."
+	},
+	"MastoAccountLookup":{
+		"prefix": "ms-account-lookup",
+		"body": [
+			"const lookup = await masto.accounts.lookup({",
+			"    acct: '${1}'",
+			"});",
+		],
+		"description": "masto status lookup This method allows to quickly convert a username of a known account to an ID that can be used with the REST API, or to check if a username is available for sign-up."
+	},
+	"MastoAccountFetchFamiliarFollowers":{
+		"prefix": "ms-account-fff",
+		"body": [
+			"const fetchFamiliarFollowers = await masto.accounts.fetchFamiliarFollowers();",
+		],
+		"description": "masto status fetchFamiliarFollowers."
+	},
+	"MastoAccountRemoveFromFollowers":{
+		"prefix": "ms-account-rff",
+		"body": [
+			"const removeFromFollowers = await masto.accounts.removeFromFollowers('${1:id}');",
+		],
+		"description": "masto status removeFromFollowers"
+	},
+}
