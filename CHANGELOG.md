@@ -15,3 +15,5 @@
   - directory
   - custom emoji
   - domain blocks
+# 1.0.1 (2022-12-19)
+- fixing some problems

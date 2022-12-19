@@ -2,7 +2,7 @@
 	"MastoStatusFetch":{
 		"prefix": "ms-status-fetch",
 		"body": [
-			"const fetch = await masto.statuses.fetch('${1:id}');",
+			"const fetch = await masto.statuses.fetch('${1:id}');"
 		],
 		"description": "masto status fetch to View information about a status"
 	},
@@ -12,7 +12,7 @@
 			"const createStatus = await masto.statuses.create({",
 			"    status: '${2:Toot from TypeScript}',",
 			"    visibility: '${1|direct,unlisted,private,public|}',",
-			"});",
+			"});"
 		],
 		"description": "masto status create to Post a new status"
 	},
@@ -40,63 +40,63 @@
 		"body": [
 			"const updateStatus = await masto.statuses.update('${1:id}', {",
 			"    status: 'Toot from Typescript'",
-			"});",
+			"});"
 		],
 		"description": "masto status update a status"
 	},
 	"MastoStatusRemove":{
 		"prefix": "ms-status-remove",
 		"body": [
-			"const removeStatus = await masto.statuses.remove('${1:id}');",
+			"const removeStatus = await masto.statuses.remove('${1:id}');"
 		],
 		"description": "masto status remove Delete one of your own statuses"
 	},
 	"MastoStatusFetchContext":{
 		"prefix": "ms-status-fc",
 		"body": [
-			"const fetchContext = await masto.statuses.fetchContext('${1:id}');",
+			"const fetchContext = await masto.statuses.fetchContext('${1:id}');"
 		],
 		"description": "masto status fetchContext View statuses above and below this status in the thread"
 	},
 	"MastoStatusFavourite":{
 		"prefix": "ms-status-favorite",
 		"body": [
-			"const favorite = await masto.statuses.favourite('${1:id}');",
+			"const favorite = await masto.statuses.favourite('${1:id}');"
 		],
 		"description": "masto status favorite add a status to your favourites list"
 	},
 	"MastoStatusUnFavourite":{
 		"prefix": "ms-status-unfavorite",
 		"body": [
-			"const unFavourite = await masto.statuses.unfavourite('${1:id}');",
+			"const unFavourite = await masto.statuses.unfavourite('${1:id}');"
 		],
 		"description": "masto status unfavorite remove a status to your favorites list"
 	},
 	"MastoStatusMute":{
 		"prefix": "ms-status-mute",
 		"body": [
-			"const muteStatus = await masto.statuses.mute('${1:id}');",
+			"const muteStatus = await masto.statuses.mute('${1:id}');"
 		],
 		"description": "masto status mute do not receive notifications for the thread that this status is part of. Must be a thread in which you are a participant."
 	},
 	"MastoStatusUnMute":{
 		"prefix": "ms-status-unmute",
 		"body": [
-			"const unNuteStatus = await masto.statuses.unmute('${1:id}');",
+			"const unNuteStatus = await masto.statuses.unmute('${1:id}');"
 		],
 		"description": "masto status unmute start receiving notifications again for the thread that this status is part of."
 	},
 	"MastoStatusFetchRebloggedBy":{
 		"prefix": "ms-status-frb",
 		"body": [
-			"const fetchRebloggedBy = await masto.statuses.fetchRebloggedBy('${1:id}');",
+			"const fetchRebloggedBy = await masto.statuses.fetchRebloggedBy('${1:id}');"
 		],
 		"description": "masto status fetchRebloggedBy view who boosted a given status."
 	},
 	"MastoStatusFetchFavouritedBy":{
 		"prefix": "ms-status-ffb",
 		"body": [
-			"const fetchFavouritedBy = await masto.statuses.fetchFavouritedBy('${1:id}');",
+			"const fetchFavouritedBy = await masto.statuses.fetchFavouritedBy('${1:id}');"
 		],
 		"description": "masto status fetchFavouritedBy view who favourited a given status."
 	},
@@ -105,58 +105,58 @@
 		"body": [
 			"const reblob = await masto.statuses.reblog('${2:id}', {",
 			"    visibility: '${1|direct,unlisted,private,public|}',",
-			"});",
+			"});"
 		],
 		"description": "masto status reblog re-share a status."
 	},
 	"MastoStatusUnreblog":{
 		"prefix": "ms-status-unreblog",
 		"body": [
-			"const unReblob = await masto.statuses.unreblog('${1:id}');",
+			"const unReblob = await masto.statuses.unreblog('${1:id}');"
 		],
 		"description": "masto status unreblog undo a re-share of a status."
 	},
 	"MastoStatusPin":{
 		"prefix": "ms-status-pin",
 		"body": [
-			"const pinStatus = await masto.statuses.pin('${1:id}');",
+			"const pinStatus = await masto.statuses.pin('${1:id}');"
 		],
 		"description": "masto status pin feature one of your own public statuses at the top of your profile."
 	},
 	"MastoStatusUnPin":{
 		"prefix": "ms-status-unpin",
 		"body": [
-			"const unPin = await masto.statuses.unpin('${1:id}');",
+			"const unPin = await masto.statuses.unpin('${1:id}');"
 		],
 		"description": "masto status unpin un-feature a status from the top of your profile."
 	},
 	"MastoStatusBookmark":{
 		"prefix": "ms-status-bookmark",
 		"body": [
-			"const bookmarkStatus = await masto.statuses.bookmark('${1:id}');",
+			"const bookmarkStatus = await masto.statuses.bookmark('${1:id}');"
 		],
 		"description": "masto status bookmark privately bookmark a status."
 	},
 	"MastoStatusUnBookmark":{
 		"prefix": "ms-status-unbookmark",
 		"body": [
-			"const unBookmarkStatus = await masto.statuses.unbookmark('${1:id}');",
+			"const unBookmarkStatus = await masto.statuses.unbookmark('${1:id}');"
 		],
 		"description": "masto status unbookmark remove a status from your private bookmarks."
 	},
 	"MastoStatusFetchHistory":{
 		"prefix": "ms-status-fh",
 		"body": [
-			"const fetchHistory = await masto.statuses.fetchHistory('${1:id}');",
+			"const fetchHistory = await masto.statuses.fetchHistory('${1:id}');"
 		],
 		"description": "masto status fetchHistory."
 	},
 	"MastoStatusFetchSource":{
 		"prefix": "ms-status-fs",
 		"body": [
-			"const fetchSource = await masto.statuses.fetchSource('${1:id}');",
+			"const fetchSource = await masto.statuses.fetchSource('${1:id}');"
 		],
 		"description": "masto status fetchSource."
-	},
+	}
 	
 }

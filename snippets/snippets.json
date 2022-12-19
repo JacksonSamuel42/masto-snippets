@@ -16,7 +16,7 @@
 			"",
 			"main().catch((error) => {",
 			"    console.error(error);",
-			"});",
+			"});"
 		],
 		"description": "masto login configuration"
 	},
@@ -45,99 +45,99 @@
 	"MastoAnnouncementFetchAll":{
 		"prefix": "ms-announcement-fa",
 		"body": [
-			"const announcements = await masto.announcements.fetchAll();",
+			"const announcements = await masto.announcements.fetchAll();"
 		],
 		"description": "fetch announcements"
 	},
 	"MastoAnnouncementDismiss":{
 		"prefix": "ms-announcement-dismiss",
 		"body": [
-			"const announcements = await masto.announcements.dismiss('${1:id}');",
+			"const announcements = await masto.announcements.dismiss('${1:id}');"
 		],
 		"description": "dismiss announcements"
 	},
 	"MastoAnnouncementAddReaction":{
 		"prefix": "ms-announcement-ar",
 		"body": [
-			"const addReaction = await masto.announcements.addReaction('${1:id}', '${2:name}');",
+			"const addReaction = await masto.announcements.addReaction('${1:id}', '${2:name}');"
 		],
 		"description": "add a reaction to announcements"
 	},
 	"MastoAnnouncementRemoveReaction":{
 		"prefix": "ms-announcement-rr",
 		"body": [
-			"const removeReaction = await masto.announcements.removeReaction('${1:id}', '${2:name}');",
+			"const removeReaction = await masto.announcements.removeReaction('${1:id}', '${2:name}');"
 		],
 		"description": "remove reaction to announcements"
 	},
 	"MastoBlockedIterate":{
 		"prefix": "ms-block",
 		"body": [
-			"const blockedUsers = await masto.blocks.iterate({$1});",
+			"const blockedUsers = await masto.blocks.iterate({$1});"
 		],
 		"description": "blocked users"
 	},
 	"MastoBookmarkIterate":{
 		"prefix": "ms-bookmark",
 		"body": [
-			"const bookmark = await masto.bookmarks.iterate({$1});",
+			"const bookmark = await masto.bookmarks.iterate({$1});"
 		],
 		"description": "Statuses the user has bookmarked"
 	},
 	"MastoConversationIterate":{
 		"prefix": "ms-conversation",
 		"body": [
-			"const conversation = await masto.conversations.iterate({$1});",
+			"const conversation = await masto.conversations.iterate({$1});"
 		],
 		"description": "Show conversation"
 	},
 	"MastoConversationRemove":{
 		"prefix": "ms-conversation-remove",
 		"body": [
-			"const conversation = await masto.conversations.remove('${1:id}');",
+			"const conversation = await masto.conversations.remove('${1:id}');"
 		],
 		"description": "remove conversation"
 	},
 	"MastoConversationRead":{
 		"prefix": "ms-conversation-read",
 		"body": [
-			"const conversation = await masto.conversations.read('${1:id}');",
+			"const conversation = await masto.conversations.read('${1:id}');"
 		],
 		"description": "mark as read"
 	},
 	"MastoCustomEmojiFetchAll":{
 		"prefix": "ms-custom-emoji",
 		"body": [
-			"const customEmoji = await masto.customEmojis.fetchAll();",
+			"const customEmoji = await masto.customEmojis.fetchAll();"
 		],
 		"description": "return custom emojis that are available on the server"
 	},
     "MastoDirectory":{
 		"prefix": "ms-directory-fa",
 		"body": [
-			"const directory = await masto.directory.fetchAll({$1});",
+			"const directory = await masto.directory.fetchAll({$1});"
 		],
 		"description": "List accounts visible in the directory."
 	},
     "MastoDomainBlockIterate":{
 		"prefix": "ms-domain-block-iterate",
 		"body": [
-			"const domainBlocks = await masto.domainBlocks.iterate({$1});",
+			"const domainBlocks = await masto.domainBlocks.iterate({$1});"
 		],
 		"description": "view domains the user has blocked"
 	},
     "MastoDomainBlock":{
 		"prefix": "ms-domain-block-create",
 		"body": [
-			"const block = await masto.domainBlocks.block('${1:domain}');",
+			"const block = await masto.domainBlocks.block('${1:domain}');"
 		],
 		"description": "block a domain"
 	},
     "MastoDomainUnBlock":{
 		"prefix": "ms-domain-block-remove",
 		"body": [
-			"const unblock = await masto.domainBlocks.unblock('${1:domain}');",
+			"const unblock = await masto.domainBlocks.unblock('${1:domain}');"
 		],
 		"description": "remove a domain block, if it exists in the user's array of blocked domains"
-	},
+	}
 }
