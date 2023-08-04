@@ -2,8 +2,6 @@
 
 Useful [masto.js](https://github.com/neet/masto.js) javascript to improve your masto experience
 
-*⚠️this snippet is under construction*
-
 ## Supported languages (file extensions)
 - JavaScript (.js)
 - TypeScript (.ts)
